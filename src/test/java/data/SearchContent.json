@@ -1,0 +1,12 @@
+ [
+    {
+      "type": "Team",
+      "searchText": "Toronto Blue Jays",
+      "tab": "Info"
+    },
+    {
+      "type": "Player",
+      "searchText": "LeBron James",
+      "tab": "Info"
+    }
+  ]
