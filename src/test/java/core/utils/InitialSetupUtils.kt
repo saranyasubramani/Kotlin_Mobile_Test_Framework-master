@@ -4,8 +4,13 @@ import com.codeborne.selenide.Selenide
 import com.codeborne.selenide.SelenideElement
 import core.constants.Constants.Companion.IS_ANDROID
 import org.openqa.selenium.By
+import pages.android.HomePageAndroid
+import java.lang.Exception
+import java.util.logging.Logger
 
 class InitialSetupUtils {
+    private val log: Logger = Logger.getLogger(InitialSetupUtils::class.java.name)
+
     var btnGetStarted: SelenideElement = Selenide.`$`(By.id("action_button_text"))
     var btnContinue: SelenideElement = Selenide.`$`(By.id("action_button_text"))
     var lblRecommended: SelenideElement = Selenide.`$`(By.xpath("//android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]"))
@@ -23,7 +28,12 @@ class InitialSetupUtils {
             lblRecommended.click()
             btnContinuefav.click()
             btnDone.click()
-            ElementHelpers().tap(btnAllow)
+            try {
+                ElementHelpers().tap(btnAllow)
+            } catch(e: Exception) {
+                log.info("Allow notification button not found")
+            }
+        }
             btnClose.click()
         }
 
