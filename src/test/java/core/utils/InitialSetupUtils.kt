@@ -28,10 +28,8 @@ class InitialSetupUtils {
             lblRecommended.click()
             btnContinuefav.click()
             btnDone.click()
-            try {
-                ElementHelpers().tap(btnAllow)
-            } catch(e: Exception) {
-                log.info("Allow notification button not found")
+            if(btnAllow.isDisplayed) {
+                btnAllow.click()
             }
             btnClose.click()
         }
