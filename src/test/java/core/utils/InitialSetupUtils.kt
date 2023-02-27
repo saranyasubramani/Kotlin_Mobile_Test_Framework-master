@@ -33,7 +33,6 @@ class InitialSetupUtils {
             } catch(e: Exception) {
                 log.info("Allow notification button not found")
             }
-        }
             btnClose.click()
         }
 
